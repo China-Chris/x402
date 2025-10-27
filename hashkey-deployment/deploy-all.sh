@@ -112,3 +112,4 @@ echo -e "${BLUE}查看详细说明:${NC}"
 echo "  cat ../HASHKEY_INTEGRATION_GUIDE.md"
 echo ""
 
+
