@@ -1,4 +1,4 @@
-import { createPublicClient, createWalletClient, http, publicActions } from "viem";
+import { createPublicClient, createWalletClient, http, publicActions, defineChain } from "viem";
 import type {
   Chain,
   Transport,
@@ -25,6 +25,33 @@ import {
 } from "viem/chains";
 import { privateKeyToAccount } from "viem/accounts";
 import { Hex } from "viem";
+
+// Define HashKey Chain Testnet
+const hashkeyTestnet = defineChain({
+  id: 133,
+  name: 'HashKey Chain Testnet',
+  network: 'hashkey-testnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'HSK',
+    symbol: 'HSK',
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://testnet.hsk.xyz'],
+    },
+    public: {
+      http: ['https://testnet.hsk.xyz'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'HashKeyScan',
+      url: 'https://testnet.hashkeyscan.io',
+    },
+  },
+  testnet: true,
+});
 
 // Create a public client for reading data
 export type SignerWallet<
@@ -211,6 +238,8 @@ export function getChainFromNetwork(network: string | undefined): Chain {
       return iotex;
     case "iotex-testnet":
       return iotexTestnet;
+    case "hashkey-testnet":
+      return hashkeyTestnet;
     default:
       throw new Error(`Unsupported network: ${network}`);
   }

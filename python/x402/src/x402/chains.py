@@ -3,6 +3,7 @@ NETWORK_TO_ID = {
     "base": "8453",
     "avalanche-fuji": "43113",
     "avalanche": "43114",
+    "hashkey-testnet": "133",
 }
 
 
@@ -53,6 +54,15 @@ KNOWN_TOKENS = {
             "human_name": "usdc",
             "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
             "name": "USDC",
+            "decimals": 6,
+            "version": "2",
+        }
+    ],
+    "133": [
+        {
+            "human_name": "usdc",
+            "address": "0x7c2a7C56a4A873c0087FCfA3B1491C6e31211E15",
+            "name": "USD Coin",
             "decimals": 6,
             "version": "2",
         }
